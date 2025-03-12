@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>todo_list</title>
     <link href="style.css" rel="stylesheet" />
     <script defer src="script.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h2>Lista zadań</h2>
-        <div>
-            <input type="text" id="taskInput" placeholder="Co jest do zrobienia?">
-            <button onclick="addTask()">Dodaj zadanie</button>
+      <h2>Lista zadań</h2>
+      <div class="task-container">
+        <div class="task-input">
+          <input
+            type="text"
+            id="taskInput"
+            placeholder="Co jest do zrobienia?"
+          />
+          <button onclick="addTask()">Dodaj zadanie</button>
         </div>
-        <div class="task-list" id="taskList"></div>
+        <div class="task-list-container">
+          <h3>Lista zadań</h3>
+          <div class="task-list" id="taskList"></div>
+        </div>
+      </div>
     </div>
-
-</body>
+  </body>
 </html>
