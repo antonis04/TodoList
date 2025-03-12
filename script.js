@@ -1,8 +1,7 @@
 function addTask() {
     const taskInput = document.getElementById("taskInput");
     const taskText = taskInput.value.trim();
-    
-    // Focus na input nawet gdy jest pusty
+
     taskInput.focus();
     
     if (taskText === "") return;
