@@ -1,30 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista zadań</title>
-    <link href="style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
-  </head>
-  <body>
+</head>
+<body class="body">
     <div class="container">
-      <h1>Lista zadań</h1>
-      <section>
-        <h2>Dodaj nowe zadanie</h2>
-        <form class="js-form">
-          <input
-            class="js-newTask"
-            type="text"
-            placeholder="Co jest do zrobienia?"
-          />
-          <button>Dodaj zadanie</button>
-        </form>
-      </section>
-      <section>
-        <h2>Lista zadań</h2>
-        <ul class="js-tasks"></ul>
-      </section>
+        <h1 class="title">Lista zadań</h1>
+
+        <section class="task-form">
+            <h2 class="task-form__title">Dodaj nowe zadanie</h2>
+            <form class="task-form__form js-form">
+                <input class="task-form__input js-newTask" type="text" placeholder="Co jest do zrobienia?" />
+                <button class="task-form__button" type="submit">Dodaj zadanie</button>
+            </form>
+        </section>
+
+        <section class="task-list">
+            <h2 class="task-list__title">Lista zadań</h2>
+            <ul class="task-list__items js-tasks"></ul>
+        </section>
     </div>
-  </body>
+</body>
 </html>
