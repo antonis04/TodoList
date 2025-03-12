@@ -15,17 +15,14 @@
   border-radius: 8px;
 }
 
-.title, 
-.task-form__title, 
+
 .task-list__title {
   text-align: left;
 }
 
-.task-form {
-  background-color: #f8f9fa;
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 20px;
+.task-form__form {
+  display: flex;
+  gap: 10px;
 }
 
 .task-form__form {
@@ -59,7 +56,6 @@
 
 .task-list {
   padding: 10px;
-  background-color: #fff;
 }
 
 .task-list__items {
@@ -99,7 +95,7 @@
   color: darkred;
 }
 
-/* Przekreślanie ukończonego zadania */
+
 .task-item--completed .task-item__content {
   text-decoration: line-through;
 }
