@@ -1,39 +1,78 @@
-function addTask() {
-    const taskInput = document.getElementById("taskInput");
-    const taskText = taskInput.value.trim();
+{
+  const tasks = [
+  ];
+  const addNewTask = (newTaskContent) => {
+    tasks.push({
+      content: newTaskContent,
+    });
 
-    taskInput.focus();
-    
-    if (taskText === "") return;
+    render();
+  };
+  const removeTask = (taskIndex) => {
+    tasks.splice(taskIndex, 1);
+    render();
+  };
 
-    const taskList = document.getElementById("taskList");
-    const taskDiv = document.createElement("div");
-    taskDiv.classList.add("task");
+  const toggleTaskDone = (taskIndex) => {
+    tasks[taskIndex].done = !tasks[taskIndex].done;
+    render();
+  };
 
-    const checkButton = document.createElement("button");
-    checkButton.innerHTML = "&#10003;";
-    checkButton.classList.add("check-btn");
-    checkButton.onclick = function () {
-        taskDiv.classList.toggle("done");
-    };
+  const bindEvents = () => {
+    const removeButtons = document.querySelectorAll(".js-remove");
 
-    const taskSpan = document.createElement("span");
-    taskSpan.classList.add("text");
-    taskSpan.textContent = taskText;
+    removeButtons.forEach((removeButtons, index) => {
+      removeButtons.addEventListener("click", () => {
+        removeTask(index);
+      });
+    });
 
-    const deleteButton = document.createElement("button");
-    deleteButton.innerHTML = "<i class='fa fa-trash'></i>";
-    deleteButton.classList.add("delete-btn");
-    deleteButton.onclick = function () {
-        taskList.removeChild(taskDiv);
-    };
+    const toggleDoneButtons = document.querySelectorAll(".js-done");
 
-    taskDiv.appendChild(checkButton);
-    taskDiv.appendChild(taskSpan);
-    taskDiv.appendChild(deleteButton);
-    taskList.appendChild(taskDiv);
+    toggleDoneButtons.forEach((toggleDoneButtons, index) => {
+      toggleDoneButtons.addEventListener("click", () => {
+        toggleTaskDone(index);
+      });
+    });
+  };
 
-   
-    taskInput.value = "";
-    taskInput.focus();
+  const render = () => {
+    let htmlString = "";
+
+    for (const task of tasks) {
+      htmlString += `
+            <li${task.done ? ' style="text-decoration: line-through"' : ""}
+            >\
+            <button class="js-done">✔</button>
+            <button class="js-remove">🗑</button>
+            ${task.content}
+            </li>
+            `;
+    }
+
+    document.querySelector(".js-tasks").innerHTML = htmlString;
+
+    bindEvents();
+  };
+
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+
+    const newTaskContent = document.querySelector(".js-newTask").value.trim();
+
+    if (newTaskContent === "") {
+      return;
+    }
+
+    addNewTask(newTaskContent);
+  };
+
+  const init = () => {
+    render();
+
+    const form = document.querySelector(".js-form");
+
+    form.addEventListener("submit", onFormSubmit);
+  };
+  init();
 }

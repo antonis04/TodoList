@@ -3,27 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>todo_list</title>
+    <title>Lista zadań</title>
     <link href="style.css" rel="stylesheet" />
     <script defer src="script.js"></script>
   </head>
   <body>
     <div class="container">
-      <h2>Lista zadań</h2>
-      <div class="task-container">
-        <div class="task-input">
+      <h1>Lista zadań</h1>
+      <section>
+        <h2>Dodaj nowe zadanie</h2>
+        <form class="js-form">
           <input
+            class="js-newTask"
             type="text"
-            id="taskInput"
             placeholder="Co jest do zrobienia?"
           />
-          <button onclick="addTask()">Dodaj zadanie</button>
-        </div>
-        <div class="task-list-container">
-          <h3>Lista zadań</h3>
-          <div class="task-list" id="taskList"></div>
-        </div>
-      </div>
+          <button>Dodaj zadanie</button>
+        </form>
+      </section>
+      <section>
+        <h2>Lista zadań</h2>
+        <ul class="js-tasks"></ul>
+      </section>
     </div>
   </body>
 </html>
