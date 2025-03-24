@@ -49,7 +49,9 @@
 }
 
 .task-form__button:hover {
-  background-color: #138496;
+  transition-duration: 2s;
+  background-color: #007081;
+  transform: scale(1.1);
 }
 
 .task-list {
@@ -83,14 +85,21 @@
   margin-right: 10px;
 }
 
+.task-item__done:hover {
+  transition-duration: 2s;
+  background: darkgreen;
+}
+
 .task-item__remove {
-  color: red;
+  color: rgb(255, 0, 0);
   cursor: pointer;
   font-size: 20px;
+  transition-transform: 0.5s;
 }
 
 .task-item__remove:hover {
-  color: darkred;
+  background: red;
+  transition-duration: 2s;
 }
 
 .task-item--completed .task-item__content {
@@ -114,13 +123,9 @@
   cursor: pointer;
 }
 
-.task-list__button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-.task-list__button:hover:not(:disabled) {
-  background-color: #138496;
+.task-list__button:hover {
+  transition-duration: 2s;
+  background-color: #0094f7;
 }
 
 .task-list__header {
@@ -149,6 +154,52 @@
 
   .task-item__content {
     font-size: 14px;
+  }
+
+  .task-item__done,
+  .task-item__remove {
+    font-size: 16px;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .task-form__form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .task-list__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .task-list__buttons {
+    justify-content: flex-start;
+    gap: 5px;
+  }
+
+  .task-list__button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .task-item__content {
+    font-size: 14px;
+    text-align: left;
   }
 
   .task-item__done,
